@@ -73,18 +73,18 @@ function col(X)
     for i in 1:100
         X = newton_iter(X)
         if norm(X - exacts[1])<0.1
-            return RGB(1,0,0)
+            return Images.Colors.JULIA_LOGO_COLORS[1]
         elseif norm(X - exacts[2])<0.1
-            return RGB(1,1,0)
+            return Images.Colors.JULIA_LOGO_COLORS[2]
         elseif norm(X - exacts[3])<0.1
-            return RGB(0,0,1)
+            return Images.Colors.JULIA_LOGO_COLORS[3]
         elseif norm(X - exacts[4])<0.1
-            return RGB(0,1,0)
+            return Images.Colors.JULIA_LOGO_COLORS[4]
         end
     end
     return RGB(1,1,1)
 end
-canvas = Canvas(-10..10, -10..10, 50)
+canvas = Canvas(-10..10, -10..10, 80)
 xs, ys = get_xy(canvas)
 Xs = [[x,y] for y in ys, x in xs]
 img = [col(X) for X in Xs]
